@@ -6,6 +6,7 @@
 class Tuple
 {
 public:
+	Tuple();
 	Tuple(float x, float y, float z, float w);
 	~Tuple();
 
@@ -13,6 +14,8 @@ public:
 	static Tuple vector(float x, float y, float z);
 	static Tuple add(Tuple t1, Tuple t2);
 	static Tuple sub(Tuple t1, Tuple t2);
+	static float dot(Tuple t1, Tuple t2);
+	static Tuple cross(Tuple a, Tuple b);
 	float magnitude();
 	Tuple normalize();
 	float x, y, z, w;

@@ -1,4 +1,7 @@
 #include "Tuple.h"
+Tuple::Tuple()
+{
+}
 Tuple::Tuple(float x, float y, float z, float w)
 {
 	this->x = x;
@@ -39,6 +42,25 @@ Tuple Tuple::sub(Tuple t1, Tuple t2)
 	float z = t1.z - t2.z;
 	float w = t1.w - t2.w;
 	return Tuple(x, y, z, w);
+}
+
+float Tuple::dot(Tuple t1, Tuple t2)
+{
+	float dot = -1;
+
+	if (t1.isVector() && t2.isVector())
+		dot = (t1.x * t2.x) + (t1.y * t2.y) + (t1.z * t2.z);
+	else
+		throw "Dot product requires two vectors.";
+
+	return dot;
+}
+
+Tuple Tuple::cross(Tuple a, Tuple b)
+{
+	return vector(a.y * b.z - a.z * b.y,
+		a.z * b.x - a.x * b.z, 
+		a.x * b.y - a.y * b.x);
 }
 
 float Tuple::magnitude()

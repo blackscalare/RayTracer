@@ -255,7 +255,29 @@ void TEST_MagnitudeOfNormalizeVector()
 	TestEngine::AssertEqual(mag, result);
 }
 
-int main() {
+void TEST_VectorDotProduct()
+{
+	Tuple a = Tuple::vector(1, 2, 3);
+	Tuple b = Tuple::vector(2, 3, 4);
+	float dot = Tuple::dot(a, b);
+	float result = 20;
+	TestEngine::AssertEqual(dot, result);
+}
+
+void TEST_CrossProduct()
+{
+	Tuple a = Tuple::vector(1, 2, 3);
+	Tuple b = Tuple::vector(2, 3, 4);
+	Tuple res1 = Tuple::vector(-1, 2, -1);
+	Tuple res2 = Tuple::vector(1, -2, 1);
+	Tuple aCross = Tuple::cross(a, b);
+	Tuple bCross = Tuple::cross(b, a);
+
+	TestEngine::AssertEqual(aCross, res1);
+	TestEngine::AssertEqual(bCross, res2);
+}
+
+//int main() {
 
 	//TEST_IsTuplePoint();
 	//TEST_IsTupleVector();
@@ -280,7 +302,9 @@ int main() {
 	//TEST_DivideTupleByScalar();
 	//TEST_Magnitudesqrt14();
 	//TEST_Magnitudesqrt14wNegativeNumbers();
-	TEST_NormalizeVector();
-	TEST_NormalizeVectorWithFloatReturnValues();
-	TEST_MagnitudeOfNormalizeVector();
-}
+	//TEST_NormalizeVector();
+	//TEST_NormalizeVectorWithFloatReturnValues();
+	//TEST_MagnitudeOfNormalizeVector();
+	//TEST_VectorDotProduct();
+	//TEST_CrossProduct();
+//}
